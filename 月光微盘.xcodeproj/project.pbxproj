@@ -209,6 +209,15 @@
 		0010055F18E920AD00A524C8 /* menu_cell_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010055918E920AD00A524C8 /* menu_cell_bg@2x.png */; };
 		0010056018E920AD00A524C8 /* menu_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010055A18E920AD00A524C8 /* menu_line.png */; };
 		0010056118E920AD00A524C8 /* menu_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010055B18E920AD00A524C8 /* menu_line@2x.png */; };
+		0010056418E9474C00A524C8 /* DVIWiFiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0010056318E9474C00A524C8 /* DVIWiFiTableViewController.m */; };
+		0010056D18E9487E00A524C8 /* wifi_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056518E9487E00A524C8 /* wifi_off.png */; };
+		0010056E18E9487E00A524C8 /* wifi_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056618E9487E00A524C8 /* wifi_off@2x.png */; };
+		0010056F18E9487E00A524C8 /* wifi_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056718E9487E00A524C8 /* wifi_on.png */; };
+		0010057018E9487E00A524C8 /* wifi_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056818E9487E00A524C8 /* wifi_on@2x.png */; };
+		0010057118E9487E00A524C8 /* wifi_server_icon_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056918E9487E00A524C8 /* wifi_server_icon_s.png */; };
+		0010057218E9487E00A524C8 /* wifi_server_icon_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056A18E9487E00A524C8 /* wifi_server_icon_s@2x.png */; };
+		0010057318E9487E00A524C8 /* wifi_server_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056B18E9487E00A524C8 /* wifi_server_icon.png */; };
+		0010057418E9487E00A524C8 /* wifi_server_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0010056C18E9487E00A524C8 /* wifi_server_icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -523,6 +532,16 @@
 		0010055918E920AD00A524C8 /* menu_cell_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_cell_bg@2x.png"; sourceTree = "<group>"; };
 		0010055A18E920AD00A524C8 /* menu_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_line.png; sourceTree = "<group>"; };
 		0010055B18E920AD00A524C8 /* menu_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_line@2x.png"; sourceTree = "<group>"; };
+		0010056218E9474C00A524C8 /* DVIWiFiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVIWiFiTableViewController.h; sourceTree = "<group>"; };
+		0010056318E9474C00A524C8 /* DVIWiFiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVIWiFiTableViewController.m; sourceTree = "<group>"; };
+		0010056518E9487E00A524C8 /* wifi_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_off.png; sourceTree = "<group>"; };
+		0010056618E9487E00A524C8 /* wifi_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_off@2x.png"; sourceTree = "<group>"; };
+		0010056718E9487E00A524C8 /* wifi_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_on.png; sourceTree = "<group>"; };
+		0010056818E9487E00A524C8 /* wifi_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_on@2x.png"; sourceTree = "<group>"; };
+		0010056918E9487E00A524C8 /* wifi_server_icon_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_server_icon_s.png; sourceTree = "<group>"; };
+		0010056A18E9487E00A524C8 /* wifi_server_icon_s@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_server_icon_s@2x.png"; sourceTree = "<group>"; };
+		0010056B18E9487E00A524C8 /* wifi_server_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi_server_icon.png; sourceTree = "<group>"; };
+		0010056C18E9487E00A524C8 /* wifi_server_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi_server_icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +690,8 @@
 				001002D018E906C100A524C8 /* DVILoginViewController.xib */,
 				001002D118E906C100A524C8 /* DVIViewController.h */,
 				001002D218E906C100A524C8 /* DVIViewController.m */,
+				0010056218E9474C00A524C8 /* DVIWiFiTableViewController.h */,
+				0010056318E9474C00A524C8 /* DVIWiFiTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1060,6 +1081,14 @@
 				0010055918E920AD00A524C8 /* menu_cell_bg@2x.png */,
 				0010055A18E920AD00A524C8 /* menu_line.png */,
 				0010055B18E920AD00A524C8 /* menu_line@2x.png */,
+				0010056518E9487E00A524C8 /* wifi_off.png */,
+				0010056618E9487E00A524C8 /* wifi_off@2x.png */,
+				0010056718E9487E00A524C8 /* wifi_on.png */,
+				0010056818E9487E00A524C8 /* wifi_on@2x.png */,
+				0010056918E9487E00A524C8 /* wifi_server_icon_s.png */,
+				0010056A18E9487E00A524C8 /* wifi_server_icon_s@2x.png */,
+				0010056B18E9487E00A524C8 /* wifi_server_icon.png */,
+				0010056C18E9487E00A524C8 /* wifi_server_icon@2x.png */,
 				0010039B18E906C100A524C8 /* markdown.pdf */,
 				0010039C18E906C100A524C8 /* test.docx */,
 				0010039D18E906C100A524C8 /* test2.jpg */,
@@ -1221,6 +1250,7 @@
 				0010054D18E91CF000A524C8 /* icon_videos@2x.png in Resources */,
 				0010053E18E91CF000A524C8 /* icon_photos_s.png in Resources */,
 				0010044018E912D200A524C8 /* default_profile@2x.png in Resources */,
+				0010057318E9487E00A524C8 /* wifi_server_icon.png in Resources */,
 				0010054B18E91CF000A524C8 /* icon_videos_s@2x.png in Resources */,
 				001003DE18E906C100A524C8 /* Reader-Thumbs.png in Resources */,
 				0010053018E91CF000A524C8 /* icon_audios.png in Resources */,
@@ -1249,12 +1279,15 @@
 				0010041218E906CB00A524C8 /* Web in Resources */,
 				001003A118E906C100A524C8 /* class.plist in Resources */,
 				0010043B18E90CB300A524C8 /* toggle_button_l@2x.png in Resources */,
+				0010057218E9487E00A524C8 /* wifi_server_icon_s@2x.png in Resources */,
 				0010052718E91CF000A524C8 /* btn_status_off@2x.png in Resources */,
 				0010041018E906C100A524C8 /* test2.jpg in Resources */,
 				0010053D18E91CF000A524C8 /* icon_documents@2x.png in Resources */,
 				0010053918E91CF000A524C8 /* icon_camera@2x.png in Resources */,
+				0010056E18E9487E00A524C8 /* wifi_off@2x.png in Resources */,
 				001003CF18E906C100A524C8 /* AppIcon-144.png in Resources */,
 				0010043618E90CB300A524C8 /* toggle_base@2x.png in Resources */,
+				0010056D18E9487E00A524C8 /* wifi_off.png in Resources */,
 				0010043418E90CB300A524C8 /* right_button_on@2x.png in Resources */,
 				001003D718E906C100A524C8 /* Reader-Email@2x.png in Resources */,
 				0010054218E91CF000A524C8 /* icon_service_s.png in Resources */,
@@ -1265,6 +1298,7 @@
 				0010052B18E91CF000A524C8 /* icon_allfile_s@2x.png in Resources */,
 				001003D318E906C100A524C8 /* Reader-Button-H@2x.png in Resources */,
 				0010055D18E920AD00A524C8 /* menu_cell_bg_s@2x.png in Resources */,
+				0010056F18E9487E00A524C8 /* wifi_on.png in Resources */,
 				0010054418E91CF000A524C8 /* icon_service.png in Resources */,
 				0010054118E91CF000A524C8 /* icon_photos@2x.png in Resources */,
 				001003CA18E906C100A524C8 /* AppIcon-057.png in Resources */,
@@ -1273,6 +1307,7 @@
 				001003C818E906C100A524C8 /* README.txt in Resources */,
 				0010053618E91CF000A524C8 /* icon_camera_s.png in Resources */,
 				0010055E18E920AD00A524C8 /* menu_cell_bg.png in Resources */,
+				0010057018E9487E00A524C8 /* wifi_on@2x.png in Resources */,
 				001003CC18E906C100A524C8 /* AppIcon-076.png in Resources */,
 				0010053A18E91CF000A524C8 /* icon_documents_s.png in Resources */,
 				001003D918E906C100A524C8 /* Reader-Mark-N@2x.png in Resources */,
@@ -1285,6 +1320,7 @@
 				0010052E18E91CF000A524C8 /* icon_audios_s.png in Resources */,
 				0010043118E90CB300A524C8 /* left_button_off@2x.png in Resources */,
 				001003D618E906C100A524C8 /* Reader-Email.png in Resources */,
+				0010057418E9487E00A524C8 /* wifi_server_icon@2x.png in Resources */,
 				001003D818E906C100A524C8 /* Reader-Mark-N.png in Resources */,
 				0010053218E91CF000A524C8 /* icon_browser_s.png in Resources */,
 				001003C018E906C100A524C8 /* About.txt in Resources */,
@@ -1297,6 +1333,7 @@
 				0010054718E91CF000A524C8 /* icon_setting_s@2x.png in Resources */,
 				0010054018E91CF000A524C8 /* icon_photos.png in Resources */,
 				001003CD18E906C100A524C8 /* AppIcon-114.png in Resources */,
+				0010057118E9487E00A524C8 /* wifi_server_icon_s.png in Resources */,
 				001003D218E906C100A524C8 /* Reader-Button-H.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1358,6 +1395,7 @@
 				001003B018E906C100A524C8 /* MultipartFormDataParser.m in Sources */,
 				001003B718E906C100A524C8 /* HTTPFileResponse.m in Sources */,
 				0010040818E906C100A524C8 /* DVIUser.m in Sources */,
+				0010056418E9474C00A524C8 /* DVIWiFiTableViewController.m in Sources */,
 				001003A918E906C100A524C8 /* DDData.m in Sources */,
 				001003C418E906C100A524C8 /* DDLog.m in Sources */,
 				001003A018E906C100A524C8 /* NSString+Utils.m in Sources */,

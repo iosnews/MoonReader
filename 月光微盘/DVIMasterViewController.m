@@ -9,6 +9,7 @@
 #import "DVIMasterViewController.h"
 
 #import "DVIDetailViewController.h"
+#import "DVIWiFiTableViewController.h"
 
 #import "DVIHeadTableViewCell.h"
 #import "DVICategoryTableViewCell.h"
@@ -46,6 +47,8 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    NSLog(@"%@", NSStringFromCGRect(self.view.bounds));
     
     UIView *toolbar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44)];
     toolbar.backgroundColor = [UIColor redColor];
@@ -87,8 +90,7 @@
         DVIHeadTableViewCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"headCell" forIndexPath:indexPath];
         
         headCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UIImageView *bgImageView = (UIImageView *)headCell.backgroundView;   
-        [headCell.contentView addSubview:bgImageView];
+        UIImageView *bgImageView = (UIImageView *)headCell.backgroundView;
         bgImageView.image = [UIImage imageNamed:@"menu_cell_bg.png"];
         headCell.lineImageView.image = [UIImage imageNamed:@"menu_line.png"];
         headCell.headImageView.image = [UIImage imageNamed:@"default_profile.png"];
@@ -158,6 +160,13 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIImageView *bgImageView = (UIImageView *)cell.backgroundView;
     bgImageView.image = [UIImage imageNamed:@"menu_cell_bg_s.png"];
+    
+    DVIWiFiTableViewController *wifiCtrl = [[DVIWiFiTableViewController alloc] init];
+    wifiCtrl.title = @"无线文件传输";
+    
+    UISplitViewController *splitCtrl = (UISplitViewController *)self.view.window.rootViewController;
+    UINavigationController *detailNavCtrl = [splitCtrl.viewControllers lastObject];
+    detailNavCtrl.viewControllers = [NSArray arrayWithObject:wifiCtrl];
 }
 
 #pragma mark - ToggleViewDelegate
