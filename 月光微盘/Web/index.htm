@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+	<title>MoonTV</title>
+
+	<link rel="stylesheet" type="text/css" href="/root/pagecontent_ch.css">
+	<link rel="shortcut icon" type="image/x-icon" media="all" href="/root/favicon.png" />
+	<script type="text/javascript" src="root/jquery.js"></script>
+	<script type="text/javascript" src="root/jquery.modal.js"></script>
+	<script type="text/javascript" src="root/filehandler_ch.js"></script>
+	<script type="text/javascript" src="root/jquery.uploadify.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+              $("#file_upload").uploadify({
+                                          height        : 43,
+                                          swf           : 'root/uploadify.swf',
+                                          uploader      : "upload.html",
+                                          width         : 210,
+                                          uploadLimit   : 99,
+                                          removeTimeout : 1,
+                                          onQueueComplete : function(stats) {//当队列中的所有文件全部完成上传时触发
+                                          window.location.reload();
+                                          }
+                                          });
+              
+              });
+            </script>
+        <!-- upload file script -->
+       
+</head>
+<body>
+<div class="frameTable">
+<div class="left_content">
+
+<h2>
+<img src="root/logo.gif" alt="logo" style="padding-left:72px; padding-top:6px;"/>
+</h2>
+<div id="file-uploader" class="choose_con">
+<div class="qq-uploader">
+                <div class="qq-upload-drop-area"></div>
+                <div class="qq-upload-button"><img src="root/btn_ch.gif"/></div>
+ </div>
+	<form>
+		<div id="queue"></div>
+		<input id="file_upload" name="file_upload" type="file" multiple="true">
+	</form>
+	
+</div>
+
+<div class="footer">
+            	<p style="line-height: 22px; margin-left: 66px; _margin-left:34px; margin-bottom:-15px;">Copyright © 2013 月光涯 Inc.</p>
+                <p style="line-height: 22px; margin-left: 94px; _margin-left:46px;">All rights reserved.</p>
+</div>
+</div>
+
+<!-- left table contents -->
+<div class="right_content">
+
+<h2 class="link_button">
+    <font style="margin-left:190px;">文件列表</font>
+    <span>
+       
+    </span>
+</h2>
+
+<div id="filesContent" class="choose_con1">
+<dl  class="filesTable" cellspacing="0" cellpadding="0">
+
+<dt class="tthread">
+<p class="hi"></p>
+<p class="hn"><b>名称</b></p>
+<p class="hs"><b>大小</b></p>
+<p class="he"><b>操作</b></p>
+</dt>
+<div style='background-image: url("root/bg_file_list.jpg"); min-height:575px; margin-top: 93px; _margin-top: 3px;' id ="fileListContainer">
+%%FileItemLoop%%
+</div>
+</dl>
+</div>
+
+</div>
+</div>
+
+<!-- modal content -->
+<div id="modal-content">
+	<div id="modal-title"></div>
+	<div id="modal-text"></div>
+	<form name="input" action="" method="post">
+	<div id="modal-field"></div>
+	<input type="hidden" name="ID" id="ID" class="inputone">
+	<input type="submit" name="submitButton" id="submitButton">
+	</form>
+</div>
+ <script>
+            
+            var height = $('.right_content').outerHeight();
+			if(height<550)
+			{
+				height=575;
+			}
+            $('.frameTable .left_content').height(height);
+            </script>
+<!--<DIV style="DISPLAY: none" id=goTopBtn><IMG border=0 src="/root/lanren_top.jpg"></DIV>-->
+<!--
+<SCRIPT type=text/javascript>$('#sidebar').portamento();</SCRIPT>
+
+ -->
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>image</key>
+		<string>icon_wifi.png</string>
+		<key>image_sel</key>
+		<string>icon_wifi_s.png</string>
+		<key>title</key>
+		<string>无线传输</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>icon_camera.png</string>
+		<key>image_sel</key>
+		<string>icon_camera_s.png</string>
+		<key>title</key>
+		<string>相册获取</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>icon_browser.png</string>
+		<key>image_sel</key>
+		<string>icon_browser_s.png</string>
+		<key>title</key>
+		<string>网络下载</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>icon_service.png</string>
+		<key>image_sel</key>
+		<string>icon_service_s.png</string>
+		<key>title</key>
+		<string>网盘下载</string>
+	</dict>
+</array>
+</plist>
