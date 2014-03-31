@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSString *hash;
 @property (nonatomic, assign) BOOL is_deleted;
 @property (nonatomic, copy) NSArray *contents;
+@property (nonatomic, copy) NSString *file_icon;
 
 - (id)initWithDict:(NSDictionary *)dict;
 + (instancetype)file:(NSDictionary *)dict;

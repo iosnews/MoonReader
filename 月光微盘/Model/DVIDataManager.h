@@ -14,4 +14,6 @@
 @property (nonatomic, strong) DVIUser *user;
 
 + (instancetype)sharedManager;
+
+- (NSArray *)currentFileArray;
 @end

@@ -10,6 +10,7 @@
 
 #import "DVIDetailViewController.h"
 #import "DVIWiFiTableViewController.h"
+#import "DVIResourceTableViewController.h"
 
 #import "DVIHeadTableViewCell.h"
 #import "DVICategoryTableViewCell.h"
@@ -161,12 +162,23 @@
     UIImageView *bgImageView = (UIImageView *)cell.backgroundView;
     bgImageView.image = [UIImage imageNamed:@"menu_cell_bg_s.png"];
     
-    DVIWiFiTableViewController *wifiCtrl = [[DVIWiFiTableViewController alloc] init];
-    wifiCtrl.title = @"无线文件传输";
+    UIViewController *viewCtrl = nil;
+    if (indexPath.section == 1) {
+        DVIResourceTableViewController *resourceCtrl = [[DVIResourceTableViewController alloc] init];
+        resourceCtrl.title = @"全部";
+        
+        viewCtrl = resourceCtrl;
+    }
+    else if (indexPath.section == 2) {
+        DVIWiFiTableViewController *wifiCtrl = [[DVIWiFiTableViewController alloc] init];
+        wifiCtrl.title = @"无线文件传输";
+        
+        viewCtrl = wifiCtrl;
+    }
     
     UISplitViewController *splitCtrl = (UISplitViewController *)self.view.window.rootViewController;
     UINavigationController *detailNavCtrl = [splitCtrl.viewControllers lastObject];
-    detailNavCtrl.viewControllers = [NSArray arrayWithObject:wifiCtrl];
+    detailNavCtrl.viewControllers = [NSArray arrayWithObject:viewCtrl];
 }
 
 #pragma mark - ToggleViewDelegate
