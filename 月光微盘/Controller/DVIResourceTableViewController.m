@@ -13,9 +13,15 @@
 #import "DVIDataManager.h"
 #import "DVIFile.h"
 
-@interface DVIResourceTableViewController ()
+#import <MessageUI/MessageUI.h>
+
+#import "MBProgressHUD.h"
+#import "UMSocial.h"
+
+@interface DVIResourceTableViewController () <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
     NSArray *_fileArray;
+    DVIFile *_shareFile;
 }
 @end
 
@@ -48,6 +54,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)didShareClicked:(UIButton *)sender
+{
+    NSLog(@"%d", sender.tag);
+    
+    _shareFile = [_fileArray objectAtIndex:sender.tag];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"邮件分享", @"短信分享", @"社交分享", nil];
+    [actionSheet showInView:self.view];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,7 +87,15 @@
     DVIResourceTableViewCell *cell = (DVIResourceTableViewCell *)[tableView dequeueReusableCellWithIdentifier: cellIdentifer];
     if (cell == nil) {
         cell = [[DVIResourceTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifer];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"btn_share.png"] forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, 32, 32);
+        [button addTarget:self action:@selector(didShareClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = button;
     }
+    
+    cell.accessoryView.tag = indexPath.row;
     
     DVIFile *file = [_fileArray objectAtIndex:indexPath.row];
     
@@ -109,5 +133,85 @@
 }
 */
 
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        if ([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *mailCtrl = [[MFMailComposeViewController alloc] init];
+            mailCtrl.mailComposeDelegate = self;
+            [mailCtrl setSubject: [_shareFile.path lastPathComponent]];
+            [mailCtrl setToRecipients:@[@"834675578@qq.com"]];
+            [mailCtrl setCcRecipients:@[@"jjd1198@sina.com"]];
+            [mailCtrl setBccRecipients:@[@"498158850@qq.com"]];
+            [mailCtrl setMessageBody:@"<h1>这是一个标题</h1><center>居中的文字</center><img src=\"http://img.hb.aicdn.com/23433136bf53b10eea4e3b4aed6896e066b4510c16412-f8lJwk_fw658\">" isHTML:YES];
+            
+            NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", _shareFile.path];
+            NSData *data = [NSData dataWithContentsOfFile:path];
+            [mailCtrl addAttachmentData:data mimeType:@"image/jpg" fileName:[_shareFile.path lastPathComponent ]];
+            [self presentViewController:mailCtrl animated:YES completion:nil];
+        }
+        else {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"还没有设置邮箱";
+            hud.removeFromSuperViewOnHide = YES;
+            [hud show:YES];
+            [hud hide:YES afterDelay:0.8];
+        }
+    }
+    else if (buttonIndex == 1) {
+        if ([MFMessageComposeViewController canSendText]) {
+            MFMessageComposeViewController *messageCtrl = [[MFMessageComposeViewController alloc] init];
+            [messageCtrl setBody:@"Test message"];
+            messageCtrl.messageComposeDelegate = self;
+            [self presentViewController:messageCtrl animated:YES completion:nil];
+        }
+    }
+    else {
+        NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", _shareFile.path];
+        
+        //533950f656240b023500f01d
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"533950f656240b023500f01d"
+                                          shareText:@"你要分享的文字"
+                                         shareImage:[UIImage imageWithContentsOfFile:path]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession, UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
+                                           delegate:nil];
+    }
+}
 
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:^{
+        NSString *message = nil;
+        switch (result) {
+            case MFMailComposeResultSaved:
+                message = @"邮件被保存";
+                break;
+            case MFMailComposeResultSent:
+                message = @"邮件发送成功";
+                break;
+            default:
+                message = @"没发出去";
+                break;
+        }
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        hud.removeFromSuperViewOnHide = YES;
+        [hud show:YES];
+        [hud hide:YES afterDelay:0.8];
+    }];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    NSLog(@"....message");
+    
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    
+    //iMessage
+}
 @end

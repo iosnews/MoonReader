@@ -8,6 +8,8 @@
 
 #import "DVIAppDelegate.h"
 
+#import "UMSocial.h"
+
 @implementation DVIAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,6 +20,8 @@
     splitViewController.delegate = (id)navigationController.topViewController;
     
     NSLog(@"%@", [[NSBundle mainBundle] resourcePath]);
+    
+    [UMSocialData setAppKey:@"533950f656240b023500f01d"];
 
     return YES;
 }
