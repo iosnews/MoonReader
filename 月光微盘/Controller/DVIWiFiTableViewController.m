@@ -97,6 +97,8 @@
 {
     if (sender.selected) {
         [_server stop];
+        
+        _addressLabel.text = nil;
     }
     else {
         _server = [[HTTPServer alloc] init];
